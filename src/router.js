@@ -12,6 +12,16 @@ export default new Router({
       component: Home
     },
     {
+      path: '/admin',
+      name: 'admin',
+      component: () => import('./views/Admin.vue')
+    },
+    {
+      path: '/login',
+      name: 'login',
+      component: () => import('./page/login/login.vue')
+    },
+    {
       path: '/about',
       name: 'about',
       // route level code-splitting
@@ -19,6 +29,6 @@ export default new Router({
       // which is lazy-loaded when the route is visited.
       component: () => import(/* webpackChunkName: "about" */ './views/About.vue')
     }
-  ],
-  mode:"history"
+  ]
+  // mode:"history"
 })
