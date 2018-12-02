@@ -8,7 +8,7 @@
 export default {
   name: 'admin',
   components: {
-    HelloWorld
+    // HelloWorld
   }
 }
 </script>

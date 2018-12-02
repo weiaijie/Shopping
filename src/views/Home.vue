@@ -1,24 +1,22 @@
 <template>
   <div class="home">
-  	1
+  	<p>1</p>
   </div>
 </template>
 
 
-<style type="text/css" scoped>
-
-</style>
 
 <script>
 // @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
-
+// import HelloWorld from '@/components/HelloWorld.vue'
 export default {
   name: 'home',
   components: {
-    HelloWorld
+    // HelloWorld
   }
 }
 </script>
 
+<style type="text/css" scoped>
+</style>
 
