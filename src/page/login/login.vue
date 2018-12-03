@@ -2,7 +2,7 @@
   <div class="login">
     <section>
       <div class="manage_tip">
-            <p>上海欧莱美商城后台管理系统</p>
+        <p>上海欧莱美商城后台管理系统</p>
       </div>
       <div class="el-main">
         <el-form :model="loginForm" status-icon :rules="rules2" ref="loginForm"  class="demo-ruleForm">
