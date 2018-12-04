@@ -1,37 +1,34 @@
 <template>
-  <div class="aside">
-    <el-col>
+  <div class="aside" style="min-height: 100%;">
+    <el-col style="min-height: 100%;">
         <el-menu
+          router
           :default-active="defaultActive" 
-          default-active="2"
-          class="el-menu-vertical-demo"
           @open="handleOpen"
           @close="handleClose"
-          background-color="rgb(50, 64, 87)"
+          background-color="#324057"
           text-color="#bfcbd9"
-          active-text-color="#20a0ff">
-
-          <el-menu-item index="1">
+          >
+          <el-menu-item index="home">
             <i class="el-icon-menu"></i>
-            <span slot="title">首页</span>
+            <span>首页</span>
           </el-menu-item>
 
           <el-submenu index="2">
             <template slot="title">
-              <i class="el-icon-location"></i>
+              <i class="el-icon-document"></i>
               <span>数据管理</span>
             </template>
-              <el-menu-item index="1">选项1</el-menu-item>
+              <el-menu-item index="admin">编辑商品</el-menu-item>
+              <el-menu-item index="about">管理商品</el-menu-item>
           </el-submenu>
-          
-          <el-menu-item index="3" disabled>
-            <i class="el-icon-document"></i>
-            <span slot="title">导航三</span>
-          </el-menu-item>
-          <el-menu-item index="4">
-            <i class="el-icon-setting"></i>
-            <span slot="title">导航四</span>
-          </el-menu-item>
+          <el-submenu index="3">
+            <template slot="title">
+              <i class="el-icon-warning"></i>
+              <span>帮助</span>
+            </template>
+              <el-menu-item index="about">编辑商品</el-menu-item>
+          </el-submenu>
         </el-menu>
       </el-col>
     </el-row>
@@ -43,8 +40,8 @@ export default {
   name: 'asideleft',
   computed: {
     defaultActive: function(){
-      console.log(1);
-      return this.$route.path.replace('/', '');
+      // console.log(this.index);
+      // return this.$route.path.replace('/', '');
     }
   },
   data() {
@@ -65,8 +62,11 @@ export default {
 
 <style scoped>
 .aside{
-  height:100%; background:rgb(50, 64, 87);
+  /*height:100%; background:rgb(50, 64, 87);*/
+  text-align: left;
   overflow: hidden;
 }
-
+.el-menu{
+  border: 0;
+}
 </style>

@@ -1,5 +1,6 @@
 <template>
   <div class="admin">
+  	11
   </div>
 </template>
 

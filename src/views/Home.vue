@@ -2,15 +2,13 @@
   <div class="home">
   	<el-container>
   		<el-row>
-		    <el-col :span="4" class="left">
+		    <el-col :span="4" class="left" style="min-height: 100%; background-color: #324057;">
           <asideleft></asideleft>
         </el-col>
 		    <el-col :span="20" class="right">
             <headTop></headTop>
             <el-main>
-              <div v-for="v in a" :key="v">
-                {{v}}
-              </div>
+              <router-view/>
             </el-main>
         </el-col>
 		  </el-row>
@@ -32,7 +30,7 @@ export default {
     asideleft,
   },
   data: function () {
-    return { a: 100 }
+    return {  }
   }
 }
 </script>
@@ -44,6 +42,7 @@ export default {
   .left{
     /*background-color: rgb(50, 64, 87);*/
     /*color:#bfcbd9;*/
+
   }
   .right{
     height: 100%;
