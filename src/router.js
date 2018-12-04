@@ -18,6 +18,12 @@ export default new Router({
       component: () => import('./views/Home.vue'),
       children:[
         {
+          path: '/addGoods',
+          name: 'addGoods',
+          component: () => import('./page/AddGoods.vue'),
+          meta: ['数据管理', '添加商品'],
+        },
+        {
           path: '/admin',
           name: 'admin',
           component: () => import('./views/Admin.vue'),

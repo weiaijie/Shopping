@@ -1,5 +1,5 @@
 <template>
-  <div class="aside" style="min-height: 100%;">
+  <div class="asideleft" style="min-height: 100%;">
     <el-col style="min-height: 100%;">
         <el-menu
           router
@@ -19,7 +19,7 @@
               <i class="el-icon-document"></i>
               <span>数据管理</span>
             </template>
-              <el-menu-item index="admin">编辑商品</el-menu-item>
+              <el-menu-item index="addGoods">添加商品</el-menu-item>
               <el-menu-item index="about">管理商品</el-menu-item>
           </el-submenu>
           <el-submenu index="3">
@@ -51,10 +51,10 @@ export default {
   },
   methods: {
     handleOpen(key, keyPath) {
-      console.log(key, keyPath);
+      // console.log(key, keyPath);
     },
     handleClose(key, keyPath) {
-      console.log(key, keyPath);
+      // console.log(key, keyPath);
     }
   }
 }

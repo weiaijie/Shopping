@@ -9,23 +9,22 @@
 </template>
 
 <script>
-
-    export default {
-    	data(){
-    		return {
-    			// baseImgPath,
-    		}
-    	},
-    	created(){
-    		
-    	},
-    	computed: {
-    		
-    	},
-		methods: {
-			
+export default {
+	data(){
+		return {
+			// baseImgPath,
 		}
-    }
+	},
+	created(){
+		
+	},
+	computed: {
+		
+	},
+	methods: {
+		
+	}
+}
 </script>
 
 <style type="text/css" scoped>
