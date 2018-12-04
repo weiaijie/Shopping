@@ -1,6 +1,6 @@
 <template>
   <div class="addGoods" style="min-height: 100%;">
-
+    addGoods
   </div>
 </template>
 

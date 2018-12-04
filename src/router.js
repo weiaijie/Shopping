@@ -24,6 +24,12 @@ export default new Router({
           meta: ['数据管理', '添加商品'],
         },
         {
+          path: '/goodsList',
+          name: 'goodsList',
+          component: () => import('./page/GoodsList.vue'),
+          meta: ['数据管理', '添加商品'],
+        },
+        {
           path: '/admin',
           name: 'admin',
           component: () => import('./views/Admin.vue'),

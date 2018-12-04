@@ -20,14 +20,14 @@
               <span>数据管理</span>
             </template>
               <el-menu-item index="addGoods">添加商品</el-menu-item>
-              <el-menu-item index="about">管理商品</el-menu-item>
+              <el-menu-item index="GoodsList">管理商品</el-menu-item>
           </el-submenu>
           <el-submenu index="3">
             <template slot="title">
               <i class="el-icon-warning"></i>
               <span>帮助</span>
             </template>
-              <el-menu-item index="about">编辑商品</el-menu-item>
+              <el-menu-item index="about">帮助</el-menu-item>
           </el-submenu>
         </el-menu>
       </el-col>
@@ -61,7 +61,7 @@ export default {
 </script>
 
 <style scoped>
-.aside{
+.asideleft{
   /*height:100%; background:rgb(50, 64, 87);*/
   text-align: left;
   overflow: hidden;
