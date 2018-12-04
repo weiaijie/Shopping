@@ -20,8 +20,9 @@
               <span>数据管理</span>
             </template>
               <el-menu-item index="addGoods">添加商品</el-menu-item>
-              <el-menu-item index="GoodsList">管理商品</el-menu-item>
+              <el-menu-item index="goodsList">管理商品</el-menu-item>
           </el-submenu>
+          
           <el-submenu index="3">
             <template slot="title">
               <i class="el-icon-warning"></i>
