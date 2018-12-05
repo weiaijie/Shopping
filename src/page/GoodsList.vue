@@ -45,7 +45,7 @@
         @size-change="handleSizeChange"
         @current-change="handleCurrentChange"
         :current-page="currentPage"
-        :page-sizes="[1,2]"
+        :page-sizes="[5,10]"
         :page-size="pageSize"
         layout="total, sizes, prev, pager, next, jumper"
         :total="totalCount">
@@ -63,14 +63,20 @@ export default {
   data() {
     return {
       currentPage: 1,
-      pageSize: 1,
+      pageSize: 5,
       currentTotal: 0,
       totalCount:0,
-      tableData: []
+      tableData: [],
+      funs1: []
     }
   },
   created(){
       this.initData();
+  },
+  watch: {
+    tableData: function (val) {
+      // console.log(val)
+    },
   },
   methods: {
      handleEdit(index, row) {
@@ -83,30 +89,133 @@ export default {
        console.log(`每页 ${val} 条`);
        this.pageSize = val;
        this.initData();
-       
      },
      handleCurrentChange(val) {
        console.log(`当前页: ${val}`);
+       this.initData1(val);
      },
      async initData(){
          try{
              var funs = [{
+                ID: '1',
+                date: '2016-05-01',
+                name: '王小虎',
+                address: '上海市普陀区金沙江路 1516 弄'
+              },{
+                ID: '2',
+                date: '2016-05-02',
+                name: '王小虎',
+                address: '上海市普陀区金沙江路 1516 弄'
+              },{
+                ID: '3',
                 date: '2016-05-03',
                 name: '王小虎',
                 address: '上海市普陀区金沙江路 1516 弄'
               },{
+                ID: '4',
+                date: '2016-05-04',
+                name: '王小虎',
+                address: '上海市普陀区金沙江路 1516 弄'
+              },{
+                ID: '2',
+                date: '2016-05-05',
+                name: '王小虎',
+                address: '上海市普陀区金沙江路 1516 弄'
+              },{
+                ID: '3',
+                date: '2016-05-06',
+                name: '王小虎',
+                address: '上海市普陀区金沙江路 1516 弄'
+              },{
+                ID: '4',
+                date: '2016-05-07',
+                name: '王小虎',
+                address: '上海市普陀区金沙江路 1516 弄'
+              },{
+                ID: '2',
+                date: '2016-05-08',
+                name: '王小虎',
+                address: '上海市普陀区金沙江路 1516 弄'
+              },{
+                ID: '3',
                 date: '2016-05-09',
                 name: '王小虎',
                 address: '上海市普陀区金沙江路 1516 弄'
+              },{
+                ID: '4',
+                date: '2016-05-10',
+                name: '王小虎',
+                address: '上海市普陀区金沙江路 1516 弄'
+              },{
+                ID: '2',
+                date: '2016-05-11',
+                name: '王小虎',
+                address: '上海市普陀区金沙江路 1516 弄'
+              },{
+                ID: '3',
+                date: '2016-05-22',
+                name: '王小虎',
+                address: '上海市普陀区金沙江路 1516 弄'
+              },{
+                ID: '4',
+                date: '2016-05-33',
+                name: '王小虎',
+                address: '上海市普陀区金沙江路 1516 弄'
+              },{
+                ID: '2',
+                date: '2016-05-44',
+                name: '王小虎',
+                address: '上海市普陀区金沙江路 1516 弄'
+              },{
+                ID: '3',
+                date: '2016-05-55',
+                name: '王小虎',
+                address: '上海市普陀区金沙江路 1516 弄'
+              },{
+                ID: '4',
+                date: '2016-05-66',
+                name: '王小虎',
+                address: '上海市普陀区金沙江路 1516 弄'
               }];
+              this.funs1 = funs;
               this.tableData = [];
               this.totalCount = funs.length;
               for (var i = 0; i < this.pageSize; i++) {
-                this.tableData.push(funs[i]);  
+                this.tableData.push(funs[i]);
                 console.log(funs[i]);
               }
          }catch(err){
-             console.log('获取数据失败', err);
+          console.log('获取数据失败', err);
+         }
+     },
+     async initData1(val){
+         try{
+          this.tableData = [];
+          console.log(this.pageSize*(val-1));
+          
+          var page = this.pageSize
+          if (this.totalCount-(this.pageSize*(val-1)) < this.pageSize) {
+            var page = this.totalCount-(this.pageSize*(val-1));
+            console.log(page);
+          }
+          for (var i = 0; i < page; i++) {
+            this.tableData.push(this.funs1[this.pageSize*(val-1)+i]);
+          }
+          
+          // if (this.pageSize==1) {
+          //   for (var i = 0; i < this.pageSize; i++) {
+          //     // if (val>0) {val = val + 1;}
+          //     this.tableData.push(this.funs1[val-1+i]);
+          //   }
+          // }else{
+          //   for (var i = 0; i < this.pageSize; i++) {
+          //     if (val==1) {val = val-1;}
+          //     this.tableData.push(this.funs1[val+i]);
+          //     console.log(val+i);
+          //   }
+          // }
+         }catch(err){
+          console.log('获取数据失败', err);
          }
      }
   }
