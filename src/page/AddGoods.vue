@@ -35,24 +35,24 @@
           </el-option>
         </el-select>
 <br><br>
-        原价 <el-input-number :min="0" :step="10" v-model="money"></el-input-number><span style="color:red;margin-left:5%">优惠价</span> <el-input-number :min="0" :step="10" v-model="ymoney"></el-input-number>
+        原价 <el-input-number :min="0" :step="10" v-model="money"></el-input-number><span style="color:red;margin-left:5%;margin-right:1%">优惠价</span> <el-input-number :min="0" :step="10" v-model="ymoney"></el-input-number>
 <br><br>
         <div class="sub-title"><p>购买须知</p></div>
 
         使用时间  
         <el-autocomplete
           class="inline-input"
-          v-model="state1"
+          v-model="utilitytime"
           :fetch-suggestions="querySearch"
           placeholder="请输入内容"
           :trigger-on-focus="false"
           @select="handleSelect"
         ></el-autocomplete>
 <br><br>
-        小提示  
+        　小提示  
         <el-autocomplete
           class="inline-input"
-          v-model="state1"
+          v-model="tip"
           :fetch-suggestions="querySearch"
           placeholder="请输入内容"
           :trigger-on-focus="false"
@@ -78,8 +78,9 @@ export default {
       restaurants: [], //商品名称智能匹配
       money: 0,
       ymoney: 0,
-      state1: '',
       state2: '',
+      utilitytime: '',
+      tip: '',
       fileList2: [{name: 'food.jpeg', url: 'https://fuss10.elemecdn.com/3/63/4e7f3a15429bfda99bce42a18cdd1jpeg.jpeg?imageMogr2/thumbnail/360x360/format/webp/quality/100'}, {name: 'food2.jpeg', url: 'https://fuss10.elemecdn.com/3/63/4e7f3a15429bfda99bce42a18cdd1jpeg.jpeg?imageMogr2/thumbnail/360x360/format/webp/quality/100'}]
 
     };
@@ -126,7 +127,85 @@ export default {
     },
     loadAll() {
         return [
-          { "value": "三全鲜食（北新泾店）", "address": "长宁区新渔路144号" }
+          { "value": "支付后30天内到院"},
+          { "value": "埋线双眼皮"},
+          { "value": "埋线双眼皮"},
+          { "value": "全切双眼皮"},
+          { "value": "双眼皮+开内眼角"},
+          { "value": "内切祛眼袋"},
+          { "value": "欧范眼综合"},
+          { "value": "双眼皮修复"},
+          { "value": "国产假体隆鼻"},
+          { "value": "韩士生科假体隆鼻"},
+          { "value": "韩士生科综合隆鼻"},
+          { "value": "立秀膨体隆鼻"},
+          { "value": "立秀膨体鼻综合"},
+          { "value": "(花样年华)威宁假体隆胸"},
+          { "value": "威宁之星隆胸"},
+          { "value": "(浪漫情环)威宁假体隆胸"},
+          { "value": "自体脂肪隆胸"},
+          { "value": "曼托圆盘毛面美胸"},
+          { "value": "内窥镜隆胸术"},
+          { "value": "吸脂大腿环吸 "},
+          { "value": "吸脂腰腹环吸"},
+          { "value": "吸脂上臂吸脂"},
+          { "value": "自体脂肪填充(小部位)"},
+          { "value": "自体脂肪填充(全脸)"},
+          { "value": "自体脂肪隆胸"},
+          { "value": "衡力瘦脸针（首次）"},
+          { "value": "衡力瘦脸针3次"},
+          { "value": "botox瘦脸针（首次）"},
+          { "value": "海薇m+玻尿酸（首支）"},
+          { "value": "润百颜玻尿酸（首支）"},
+          { "value": "海薇玻尿酸（首支）"},
+          { "value": "伊婉c玻尿酸（首支）"},
+          { "value": "艾莉薇玻尿酸（首支）"},
+          { "value": "瑞蓝玻尿酸（首支）"},
+          { "value": "乔雅登雅致玻尿酸（首支）"},
+          { "value": "伊婉v玻尿酸（首支）"},
+          { "value": "botox祛鱼尾纹（首次）"},
+          { "value": "botox除皱3次"},
+          { "value": "衡力除皱（单部位）（首次）"},
+          { "value": "botox除皱（单部位）（首次）"},
+          { "value": "润百颜玻尿酸（首支）"},
+          { "value": "瑞蓝玻尿酸（首支）"},
+          { "value": "乔雅登雅致玻尿酸（首支）"},
+          { "value": "伊婉c玻尿酸（首支）"},
+          { "value": "海薇m+玻尿酸（首支）"},
+          { "value": "艾莉薇玻尿酸（首支）"},
+          { "value": "伊婉v玻尿酸（首支）"},
+          { "value": "海薇m+玻尿酸（首支）"},
+          { "value": "润百颜玻尿酸（首支）"},
+          { "value": "海薇玻尿酸（首支）"},
+          { "value": "伊婉c玻尿酸（首支）"},
+          { "value": "艾莉薇玻尿酸（首支）"},
+          { "value": "瑞蓝玻尿酸（首支）"},
+          { "value": "乔雅登雅致玻尿酸（首支）"},
+          { "value": "伊婉v玻尿酸（首支）"},
+          { "value": "衡力瘦腿针（首次）"},
+          { "value": "半永久纹眉"},
+          { "value": "半永久美瞳线"},
+          { "value": "360嫩肤祛斑"},
+          { "value": "镭射祛斑"},
+          { "value": "超皮秒局部"},
+          { "value": "果酸焕肤"},
+          { "value": "光子嫩肤"},
+          { "value": "激光点痣"},
+          { "value": "点阵激光"},
+          { "value": "热拉提（射频紧肤）"},
+          { "value": "光子嫩肤"},
+          { "value": "脱唇/腋毛包年（二选一）"},
+          { "value": "超冰四肢脱毛（四选一）"},
+          { "value": "果酸焕肤"},
+          { "value": "光子嫩肤"},
+          { "value": "（针清+红蓝光+中药面膜）祛痘"},
+          { "value": "无针水光"},
+          { "value": "小气泡"},
+          { "value": "大气泡（舒敏之星）"},
+          { "value": "菲洛嘉水光针"},
+          { "value": "基础水光针"},
+          { "value": "美白水光针"},
+          { "value": "紧致水光针"},
         ];
       },
   }
