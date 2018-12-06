@@ -63,7 +63,7 @@ export default {
   data() {
     return {
       currentPage: 1,
-      pageSize: 5,
+      pageSize: 10,
       currentTotal: 0,
       totalCount:0,
       tableData: [],
@@ -72,6 +72,7 @@ export default {
   },
   created(){
       this.initData();
+      this.currentPage = 0;
   },
   watch: {
     tableData: function (val) {
@@ -80,7 +81,8 @@ export default {
   },
   methods: {
      handleEdit(index, row) {
-       console.log(index, row);
+       console.log(index,row.date);
+
      },
      handleDelete(index, row) {
        console.log(index, row);
@@ -180,9 +182,13 @@ export default {
               this.funs1 = funs;
               this.tableData = [];
               this.totalCount = funs.length;
+              if (funs.length < this.pageSize) {
+                this.pageSize = funs.length - 1;
+              }
+              console.log(funs.length);
               for (var i = 0; i < this.pageSize; i++) {
                 this.tableData.push(funs[i]);
-                console.log(funs[i]);
+                // console.log(i);
               }
          }catch(err){
           console.log('获取数据失败', err);
