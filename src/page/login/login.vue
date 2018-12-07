@@ -89,8 +89,8 @@ export default {
      return {
        loginForm: {
          username: '',
-         pass: ''
-         // age: ''
+         pass: '',
+         state: ''
        },
        rules2: {
          username: [
@@ -104,29 +104,40 @@ export default {
    },
   methods: {
     open6() {
-        this.$message({
-          showClose: true,
-          message: '登陆成功',
-          type: 'success'
-        });
-      },
+      this.$message({
+        showClose: true,
+        message: '登陆成功',
+        type: 'success'
+      });
+    },
     submitForm(formName) {
       this.$refs[formName].validate((valid) => {
         if (valid) {
-          this.axios.post('?login', {
-            username: this.loginForm.username,
-            pass: this.loginForm.pass
+          this.axios.post('?login&username='+this.loginForm.username+'&pass='+this.loginForm.pass)
+          .then((response)=> {
+            // console.log(response);
+            console.log(response.data);
+            if (response.data==1) {
+              this.open6();
+              this.$router.push('home');
+            }else{
+              this.$notify.error({
+                title: '错误',
+                message: '请输入正确的用户名密码',
+                offset: 100
+              });
+              return false;
+            }
           })
-          .then(function (response) {
-            console.log(response);
-          })
-          .catch(function (error) {
+          .catch((error)=> {
             console.log(error);
+            this.$notify.error({
+              title: '错误',
+              message: '请输入正确的用户名密码',
+              offset: 100
+            });
+            return false;
           });
-
-          //console.log(this.loginForm.username+" : "+this.loginForm.pass);
-          this.open6();
-          this.$router.push('home');
         } else {
           this.$notify.error({
             title: '错误',
