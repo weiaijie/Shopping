@@ -113,7 +113,18 @@ export default {
     submitForm(formName) {
       this.$refs[formName].validate((valid) => {
         if (valid) {
-          console.log(this.loginForm.username+" : "+this.loginForm.pass);
+          this.axios.post('?login', {
+            username: this.loginForm.username,
+            pass: this.loginForm.pass
+          })
+          .then(function (response) {
+            console.log(response);
+          })
+          .catch(function (error) {
+            console.log(error);
+          });
+
+          //console.log(this.loginForm.username+" : "+this.loginForm.pass);
           this.open6();
           this.$router.push('home');
         } else {
