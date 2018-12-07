@@ -61,13 +61,17 @@
 <br><br>
       </el-col>
     </el-row>
-    
+    <editor></editor>
   </div>
 </template>
 
 <script>
+import editor from '@/components/Editor.vue'
 export default {
   name: 'addGoods',
+  components: {
+    editor,
+  },
   computed: {
 
   },
@@ -81,6 +85,7 @@ export default {
       state2: '',
       utilitytime: '',
       tip: '',
+      editorContent: '',
       fileList2: [{name: 'food.jpeg', url: 'https://fuss10.elemecdn.com/3/63/4e7f3a15429bfda99bce42a18cdd1jpeg.jpeg?imageMogr2/thumbnail/360x360/format/webp/quality/100'}, {name: 'food2.jpeg', url: 'https://fuss10.elemecdn.com/3/63/4e7f3a15429bfda99bce42a18cdd1jpeg.jpeg?imageMogr2/thumbnail/360x360/format/webp/quality/100'}]
 
     };
@@ -89,8 +94,7 @@ export default {
     this.initData3();
   },
   mounted() {
-    this.restaurants = this.loadAll();
-  },
+    this.restaurants = this.loadAll();  },
   methods: {
     handleRemove(file, fileList) {
       console.log(file, fileList);

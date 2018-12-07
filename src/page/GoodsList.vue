@@ -8,7 +8,7 @@
         width="50">
       </el-table-column>
       <el-table-column
-        label="日期"
+        label=更新日期
         width="180">
         <template slot-scope="scope">
           <i class="el-icon-time"></i>
@@ -16,8 +16,15 @@
         </template>
       </el-table-column>
       <el-table-column
-        label="姓名"
+        label="商品封面"
         width="180">
+        <template slot-scope="scope">
+          <span style="margin-left: 10px">暂无</span>
+        </template>
+      </el-table-column>
+      <el-table-column
+        label="商品名称"
+        width="330">
         <template slot-scope="scope">
           <el-popover trigger="hover" placement="top">
             <p>姓名: {{ scope.row.name }}</p>
@@ -28,7 +35,15 @@
           </el-popover>
         </template>
       </el-table-column>
-      <el-table-column label="操作">
+      <el-table-column
+        label="原价/折扣"
+        width="180">
+        <template slot-scope="scope">
+          <el-tag size="medium">{{ scope.row.name }}</el-tag>/
+          <el-tag size="medium" style="color:red">{{ scope.row.name }}</el-tag>
+        </template>
+      </el-table-column>
+      <el-table-column label="操作" width="180">
         <template slot-scope="scope">
           <el-button
             size="mini"
@@ -185,7 +200,6 @@ export default {
               if (funs.length < this.pageSize) {
                 this.pageSize = funs.length - 1;
               }
-              console.log(funs.length);
               for (var i = 0; i < this.pageSize; i++) {
                 this.tableData.push(funs[i]);
                 // console.log(i);
@@ -197,12 +211,12 @@ export default {
      async initData1(val){
          try{
           this.tableData = [];
-          console.log(this.pageSize*(val-1));
+          // console.log(this.pageSize*(val-1));
           
           var page = this.pageSize
           if (this.totalCount-(this.pageSize*(val-1)) < this.pageSize) {
             var page = this.totalCount-(this.pageSize*(val-1));
-            console.log(page);
+            // console.log(page);
           }
           for (var i = 0; i < page; i++) {
             this.tableData.push(this.funs1[this.pageSize*(val-1)+i]);
