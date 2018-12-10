@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import login from './page/login/Login.vue'
+import login from './views/Login.vue'
 
 Vue.use(Router) 
 
@@ -20,13 +20,13 @@ export default new Router({
         {
           path: '/addGoods',
           name: 'addGoods',
-          component: () => import('./page/AddGoods.vue'),
+          component: () => import('./views/AddGoods.vue'),
           meta: ['数据管理', '添加商品'],
         },
         {
           path: '/goodsList',
           name: 'goodsList',
-          component: () => import('./page/GoodsList.vue'),
+          component: () => import('./views/GoodsList.vue'),
           meta: ['数据管理', '商品管理'],
         },
         {
