@@ -19,7 +19,7 @@
         label="商品封面"
         width="180">
         <template slot-scope="scope">
-          <span style="margin-left: 10px">暂无</span>
+          <span style="margin-left: 10px"> <img v-bind:src="scope.row.logo" style="width: 90px;"></span>
         </template>
       </el-table-column>
       <el-table-column
@@ -54,7 +54,7 @@
         @size-change="handleSizeChange"
         @current-change="handleCurrentChange"
         :current-page="currentPage"
-        :page-sizes="[14,30,77]"
+        :page-sizes="[10,30,77]"
         :page-size="pageSize"
         layout="total, sizes, prev, pager, next, jumper"
         :total="totalCount">
@@ -72,7 +72,7 @@ export default {
   data() {
     return {
       currentPage: 1,
-      pageSize: 15,
+      pageSize: 10,
       currentTotal: 0,
       totalCount:0,
       tableData: [],
