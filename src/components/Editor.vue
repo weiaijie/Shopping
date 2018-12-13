@@ -1,6 +1,12 @@
 <template>
   <div>
-    <div id="editor" class="editor"></div>
+  	<div id="editor1" class="toolbar">
+    </div>
+    <!-- <div style="padding: 5px 0; color: #ccc">中间隔离带</div> -->
+    <div id="editor2" class="text"> <!--可使用 min-height 实现编辑区域自动增加高度-->
+        <p>请输入内容</p>
+    </div>
+    <!-- <div id="editor" class="editor" style="height: 700px"></div> -->
   </div>
 </template>
  
@@ -14,12 +20,14 @@ export default {
   	}
   },
   mounted () {
-    var editor = new E('#editor')
+  	 // var E = window.wangEditor
+    var editor = new E('#editor1', '#editor2')  // 两个参数也可以传入 elem 对象，class 选择器
+    // var editor = new E('#editor')
     editor.customConfig.uploadImgServer = '/upload'  // 上传图片到服务器
     editor.customConfig.onchange = function (html) {
         // 监控变化，同步更新到 textarea
-        console.log(editor.txt.html());
-
+        this.content = editor.txt.html()
+        this.cont()
     }
 
     editor.customConfig.menus = [
@@ -45,8 +53,31 @@ export default {
     ]
     editor.create()
     
-    var s  ='<img src="http://localhost/images/banner2.jpg" style="width:100%"><img src="http://localhost/images/banner2.jpg">';
+    var s  = '<img src="http://localhost/images/banner2.jpg" style="width:100%"><img src="http://localhost/images/banner2.jpg" style="width:100%"><img src="http://localhost/images/banner2.jpg" style="width:100%">';
     editor.txt.html(s)
   }
+  // ,
+  // mounted: {
+  //   // cont () {
+  //   // 	this.content
+  //   // }
+  // }
 }
 </script>
+<style scoped>
+.toolbar{
+    background:  #e8e8e8;
+    max-width: 640px !important;
+    margin: auto;
+}
+#editor2{
+	max-width: 640px !important;
+    height: 600px !important;/*!important是重点，因为原div是行内样式设置的高度300px*/
+    border: 1px solid #33333342;
+    padding: 10px 0;
+    margin: auto;
+}
+</style>
+
+
+

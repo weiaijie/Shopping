@@ -113,7 +113,7 @@ export default {
     submitForm(formName) {
       this.$refs[formName].validate((valid) => {
         if (valid) {
-          this.axios.post('?login&goodsList='+this.loginForm.username+'&pass='+this.loginForm.pass)
+          this.axios.post('?login&username='+this.loginForm.username+'&pass='+this.loginForm.pass)
           .then((response)=> {
             // console.log(response);
             console.log(response.data);
