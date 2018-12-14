@@ -19,7 +19,13 @@
         label="商品封面"
         width="180">
         <template slot-scope="scope">
-          <span style="margin-left: 10px"> <img v-bind:src="scope.row.logo" style="width: 90px;"></span>
+          <el-popover trigger="hover" placement="top">
+            <img v-bind:src="scope.row.logo" style="width: 200px;">
+            <div slot="reference" class="name-wrapper">
+              <img v-bind:src="scope.row.logo" style="width: 90px;">
+            </div>
+          </el-popover>
+          <!-- <span style="margin-left: 10px"> <img v-bind:src="scope.row.logo" style="width: 90px;"></span> -->
         </template>
       </el-table-column>
       <el-table-column
