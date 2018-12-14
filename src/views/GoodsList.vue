@@ -20,9 +20,9 @@
         width="180">
         <template slot-scope="scope">
           <el-popover trigger="hover" placement="top">
-            <img v-bind:src="scope.row.logo" style="width: 200px;">
+            <img v-bind:src="'http://192.168.0.117'+scope.row.logo" style="width: 200px;">
             <div slot="reference" class="name-wrapper">
-              <img v-bind:src="scope.row.logo" style="width: 90px;">
+              <img v-bind:src="'http://192.168.0.117'+scope.row.logo" style="width: 90px;">
             </div>
           </el-popover>
           <!-- <span style="margin-left: 10px"> <img v-bind:src="scope.row.logo" style="width: 90px;"></span> -->
