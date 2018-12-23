@@ -15,7 +15,7 @@ if (count($_REQUEST)) {
 
 
 function xuanz() {
-	$ab = array('1' => 'login','2' => 'goodsList','3' => 'category','4' => 's','5' => 'ip_cat','6' => 'detail');
+	$ab = array('1' => 'login','2' => 'goodsList','3' => 'category','4' => 's','5' => 'ip_cat','6' => 'detail','7' => 'shophot','8' => 'nums');
 	foreach ($_REQUEST as $key => $value) {
 		if (array_search($key,$ab) != 0) {
 			$key();
@@ -25,6 +25,40 @@ function xuanz() {
 
 /*   用户请求    */
 
+function nums(){
+	$s = "SELECT COUNT(*) FROM `olm_product` ";
+	// echo "<xmp>";
+	$nums['nums'] = sql($s)[0][0];
+	echo json_encode($nums);
+}
+
+function shophot(){
+	if(empty($_REQUEST['limit2'])){die('null');}
+	$s = "SELECT `id`,`logo`,`name`,`money`,`ymoney`,`state`,`cid` FROM `olm_product` ORDER BY `id` ";
+	$s = $s."limit {$_REQUEST['limit1']} , {$_REQUEST['limit2']}";
+	// die($s);
+	$s1 = [];
+	foreach (sql($s) as $key => $value) {
+		foreach ($value as $key1 => $value1) {
+			$s1[$key] = array(
+				'id' => $value[0],
+				'logo' => $value[1],
+				'name' => $value[2],
+				'money' => floatval($value[3]),
+				'ymoney' => floatval($value[4]),
+				'state' => $value[5],
+				'cid' => $value[6]
+			);
+		}
+	}
+	
+	// if (!count($s1)) {$s1 = 'null';}
+	echo json_encode($s1);
+	// echo "<xmp>";
+	// print_r($s1);
+}
+
+//商品详情
 function detail(){
 	if(empty($_REQUEST['proId'])){die('null');}
 	$s = "SELECT * FROM `olm_product` WHERE `id` = '{$_REQUEST['proId']}' ORDER BY `id` ";
