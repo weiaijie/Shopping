@@ -26,7 +26,12 @@ function xuanz() {
 /*   用户请求    */
 
 function nums(){
-	$s = "SELECT COUNT(*) FROM `olm_product` ";
+	if(empty($_REQUEST['cid'])){
+		$s = "SELECT COUNT(*) FROM `olm_product` ";
+	}else{
+		$s = "SELECT COUNT(*) FROM `olm_product` WHERE cid = '{$_REQUEST['cid']}' ";
+	}
+	
 	// echo "<xmp>";
 	$nums['nums'] = sql($s)[0][0];
 	echo json_encode($nums);
@@ -96,7 +101,7 @@ function ip_cat(){
 	}else{
 		$s = "SELECT `id`,`logo`,`name`,`money`,`ymoney`,`state`,`cid` FROM `olm_product` WHERE cid = '{$_REQUEST['cid']}' ORDER BY `id` ";
 	}
-	$s = $s."limit {$_REQUEST['limit']}";
+	$s = $s."limit {$_REQUEST['limit1']} , {$_REQUEST['limit2']}";
 	// die($s);
 	$s1 = [];
 	foreach (sql($s) as $key => $value) {
