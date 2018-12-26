@@ -15,8 +15,14 @@ export default {
   data: function () {
     return {  }
   },
-  mounted: {
+  created() {
     
+  },
+  mounted() {
+    console.log(process.env.VUE_APP_SECRET)
+  },
+  methods: {
+
   }
 }
 </script>

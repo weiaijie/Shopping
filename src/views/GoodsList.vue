@@ -113,10 +113,10 @@ export default {
      },
      async initData(){
          try{
-              this.axios.post('?goodsList')
+              this.axios.post('/goodsList')
               .then((response)=> {
                 // console.log(response);
-                console.log(response.data);
+                console.log(response);
                 if (response.status==200) {
                   // var funs = [{
                   //   ID: '1',

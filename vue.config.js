@@ -3,7 +3,7 @@ module.exports = {
   devServer: {
   proxy: {
     '/api': {
-      target: 'http://api.c.com/',
+      target: 'http://api.c.com/api',
       ws: true,
       changeOrigin: true,
       pathRewrite:{
