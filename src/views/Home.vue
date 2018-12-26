@@ -42,13 +42,11 @@ export default {
   .left{
     /*background-color: rgb(50, 64, 87);*/
     /*color:#bfcbd9;*/
-
   }
   .right{
     height: 100%;
     overflow: auto;
   }
-
   .el-row {
     width: 100%;
   }
