@@ -1,9 +1,10 @@
 module.exports = {
   lintOnSave: false,
+
   devServer: {
   proxy: {
     '/api': {
-      target: 'http://api.c.com/api',
+      target: 'http://m.021olmyy.com/api',
       ws: true,
       changeOrigin: true,
       pathRewrite:{
@@ -11,6 +12,13 @@ module.exports = {
       }
      }
     }
-  }
+  },
 
+  baseUrl: '/admin',
+  outputDir: undefined,
+  assetsDir: undefined,
+  runtimeCompiler: undefined,
+  productionSourceMap: undefined,
+  parallel: undefined,
+  css: undefined
 }

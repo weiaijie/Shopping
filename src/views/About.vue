@@ -1,7 +1,7 @@
 <template>
   <div class="about">
-    <h1>This is an about page</h1>
-    <router-link to="/">login</router-link>
+    <!-- <h1>This is an about page</h1> -->
+    <router-link to="/">退出</router-link>
   </div>
 </template>
 
@@ -19,7 +19,7 @@ export default {
     
   },
   mounted() {
-    console.log(process.env.VUE_APP_SECRET)
+    // console.log(process.env.VUE_APP_SECRET)
   },
   methods: {
 
